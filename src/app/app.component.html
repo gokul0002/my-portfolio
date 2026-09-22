@@ -1,0 +1,240 @@
+<div class="site-shell">
+  <header class="nav-wrap">
+    <nav class="nav container">
+      <button class="brand" (click)="scrollTo('home')" aria-label="Go to home">
+        <span class="brand-mark">GS</span>
+        <span>Gokul<span class="accent">.</span></span>
+      </button>
+
+      <div class="nav-links" [class.open]="menuOpen">
+        <button (click)="scrollTo('home')">Home</button>
+        <button (click)="scrollTo('about')">About</button>
+        <button (click)="scrollTo('projects')">Projects</button>
+        <button (click)="scrollTo('skills')">Skills</button>
+        <button class="nav-contact" (click)="scrollTo('contact')">Let's talk <span>↗</span></button>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" (click)="toggleTheme()" [attr.aria-label]="darkMode ? 'Switch to light theme' : 'Switch to dark theme'">
+          {{ darkMode ? '☼' : '☾' }}
+        </button>
+        <button class="menu-btn" (click)="menuOpen = !menuOpen" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <div class="hero-copy" @fadeUp>
+        <div class="eyebrow"><span class="status-dot"></span> Available for opportunities</div>
+        <p class="hero-kicker">FULL STACK DEVELOPER · CHENNAI</p>
+        <h1>Building digital products that <span class="gradient-text">feel effortless.</span></h1>
+        <p class="hero-description">
+          I’m Gokul Saran, a developer focused on Angular, React, Node.js and scalable web experiences.
+          I turn complex workflows and data into clean, responsive interfaces.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn magnetic" (click)="scrollTo('projects')">Explore my work <span>↗</span></button>
+          <a class="ghost-btn resume-btn" href="assets/Gokul_Saran_Resume.docx" download="Gokul_Saran_Resume.docx">
+            Download resume <span>↓</span>
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span><i></i> 2.6+ years experience</span>
+          <span class="separator">•</span>
+          <span>Angular · React · Node.js</span>
+          <span class="separator">•</span>
+          <span>Open to opportunities</span>
+        </div>
+      </div>
+
+      <div class="hero-art" @fadeUp>
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="code-card">
+          <div class="window-bar"><span></span><span></span><span></span><small>developer.ts</small></div>
+          <pre><code><span class="purple">const</span> developer = &#123;
+  name: <span class="green">'Gokul Saran'</span>,
+  role: <span class="green">'Full Stack Developer'</span>,
+  stack: [
+    <span class="green">'Angular'</span>,
+    <span class="green">'React'</span>,
+    <span class="green">'Node.js'</span>,
+    <span class="green">'TypeScript'</span>
+  ],
+  mindset: <span class="green">'Build. Learn. Improve.'</span>
+&#125;;</code></pre>
+        </div>
+        <div class="floating-card card-top"><span>✦</span> Clean Architecture</div>
+        <div class="floating-card card-bottom"><span>⚡</span> Performance First</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Technology stack">
+      <div class="marquee-track">
+        <span>ANGULAR</span><b>✦</b><span>TYPESCRIPT</span><b>✦</b><span>REACT</span><b>✦</b>
+        <span>NODE.JS</span><b>✦</b><span>REST APIS</span><b>✦</b><span>Nx MONOREPO</span><b>✦</b>
+        <span>TAILWIND CSS</span><b>✦</b><span>RESPONSIVE UI</span><b>✦</b>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <div class="section-label">01 / ABOUT</div>
+      <div class="about-grid">
+        <div>
+          <h2>Frontend roots.<br><span class="muted">Full-stack direction.</span></h2>
+        </div>
+        <div class="about-content">
+          <p class="lead">
+            I’ve built production-grade applications for enterprise clients, from interactive catalogues
+            and analytics dashboards to multi-role workflow tools.
+          </p>
+          <p>
+            My core experience is in Angular (v14/v17), React, TypeScript, REST APIs and responsive UI.
+            I also work with Node.js and Express on the backend, with a strong interest in clean architecture,
+            performance and seamless user experiences.
+          </p>
+          <div class="about-stats">
+            <div><strong>3+</strong><span>Production apps</span></div>
+            <div><strong>4</strong><span>Core UI stacks</span></div>
+            <div><strong>1</strong><span>Engineering mindset</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">02 / SELECTED WORK</div>
+            <h2>Things I’ve <span class="gradient-text">built.</span></h2>
+          </div>
+          <div class="slider-controls">
+            <button (click)="previousProject()" aria-label="Previous project">←</button>
+            <button (click)="nextProject()" aria-label="Next project">→</button>
+          </div>
+        </div>
+
+        <div class="project-showcase">
+          <article class="project-card" @fadeUp>
+            <div class="project-visual">
+              <div class="visual-grid"></div>
+              <div class="visual-window">
+                <div class="mini-nav"><span></span><span></span><span></span></div>
+                <div class="mini-content">
+                  <div class="mini-side"></div>
+                  <div class="mini-main">
+                    <div class="mini-line wide"></div>
+                    <div class="mini-line"></div>
+                    <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-number">0{{ activeProject + 1 }}</div>
+            </div>
+            <div class="project-info">
+              <span class="project-type">{{ projects[activeProject].type }}</span>
+              <h3>{{ projects[activeProject].title }}</h3>
+              <p>{{ projects[activeProject].description }}</p>
+              <ul>
+                <li *ngFor="let point of projects[activeProject].points">{{ point }}</li>
+              </ul>
+              <div class="stack">
+                <span *ngFor="let item of projects[activeProject].stack">{{ item }}</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="project-dots">
+            <button *ngFor="let project of projects; let i = index"
+                    [class.active]="i === activeProject"
+                    (click)="setProject(i)"
+                    [attr.aria-label]="'Show ' + project.title"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section container">
+      <div class="section-label">03 / TOOLKIT</div>
+      <div class="section-head skills-head">
+        <div>
+          <h2>My <span class="gradient-text">stack.</span></h2>
+          <p>Technologies I use to turn ideas into maintainable products.</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of skills">
+          <div class="skill-top">
+            <span>{{ skill.name }}</span>
+            <small>{{ skill.category }}</small>
+          </div>
+          <div class="skill-track"><span [style.width.%]="skill.level"></span></div>
+        </div>
+      </div>
+      <div class="tech-cloud">
+        <span>RxJS</span><span>HTML5</span><span>CSS3</span><span>GA4</span><span>Git</span><span>Bitbucket</span><span>Agile / Scrum</span><span>Responsive Design</span><span>Component Architecture</span>
+      </div>
+    </section>
+
+    <section class="section journey-section">
+      <div class="container">
+        <div class="section-label">04 / EXPERIENCE</div>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">NOV 2023 — MAY 2026</div>
+            <div>
+              <h3> Software Developer</h3>
+              <p class="company">VMG Digital · Chennai</p>
+              <p>Built and maintained production-grade Angular applications, integrated REST APIs, contributed to React applications and worked within an Nx monorepo architecture.</p>
+              <div class="timeline-tags"><span>Angular</span><span>React</span><span>REST APIs</span><span>Nx</span><span>Tailwind</span></div>
+            </div>
+          </article>
+          <article class="timeline-item education">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2019 — 2023</div>
+            <div>
+              <h3>B.E. Electronics & Communication Engineering</h3>
+              <p class="company">Saveetha Engineering College · Chennai</p>
+              <p>CGPA: 7.8 / 10</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container contact-card">
+        <div class="contact-glow"></div>
+        <div class="section-label">05 / CONTACT</div>
+        <h2>Have a project<br><span class="gradient-text">in mind?</span></h2>
+        <p>Let’s talk about building something useful, fast and beautifully engineered.</p>
+        <div class="contact-actions">
+          <button class="primary-btn" (click)="copyEmail()">
+            {{ copied ? 'Email copied ✓' : 'Copy my email' }}
+          </button>
+          <a class="ghost-btn resume-btn" href="assets/Gokul_Saran_Resume.docx" download="Gokul_Saran_Resume.docx">
+            Download resume ↓
+          </a>
+          <button class="ghost-btn" (click)="openLinkedIn()">LinkedIn ↗</button>
+        </div>
+        <div class="contact-details">
+          <span>{{ email }}</span>
+          <span>{{ phone }}</span>
+          <span>Chennai, Tamil Nadu</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 Gokul Saran</span>
+    <span>Built with Angular · TypeScript · CSS</span>
+    <button (click)="scrollTo('home')">Back to top ↑</button>
+  </footer>
+</div>
